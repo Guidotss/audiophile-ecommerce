@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.image { 
+    background-image: url("/assets/home/desktop/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-position: center;
+    height: 75vh;
+    width: 100%;
+}
+
+.scroll-bar::-webkit-scrollbar {
+    width: 10px;
+    background: #000000;    
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb:hover {
+    background: #555;   
+}
+

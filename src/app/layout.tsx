@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} w-full h-screen`}>{children}</body>
+      <body className={`${manrope.className} w-full h-screen scroll-bar`}>{children}</body>
     </html>
   )
 }
