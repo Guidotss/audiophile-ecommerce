@@ -11,9 +11,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <header className="bg-black w-full py-10 border-smoke_white sticky text-white items-center">
-        <NavBar />
-      </header>
       <HeroHeader />
       <section className="bg-white p-20 flex items-center justify-center w-full gap-36">
         <ProductCard
@@ -97,7 +94,6 @@ export default function Home() {
         </div>
       </section>
       <AboutUs />
-      <Footer />
     </main>
   );
 }
