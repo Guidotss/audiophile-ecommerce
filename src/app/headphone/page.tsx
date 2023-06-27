@@ -43,7 +43,7 @@ export default function HeadPhonesPage() {
           image="assets/shared/desktop/image-category-thumbnail-earphones.png"
         />
       </section>
-      <AboutUs/>
+      <AboutUs />
     </main>
   );
 }
