@@ -25,7 +25,7 @@ export const ProductBannerRight:FC<Props> = ({ title, description, image }) => {
         </button>
       </article>
       <Image
-        className="rounded-md"
+        className="rounded-md fadeIn"
         src={ image }
         width={500}
         height={500}

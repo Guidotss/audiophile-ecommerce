@@ -11,7 +11,7 @@ export const ProductCard:FC<ProductCardProps> = ({ productName, image }) => {
   return (
     <div className="flex flex-col items-center justify-center">
         <Image
-            className="rounded-lg z-10"
+            className="rounded-lg z-10 fadeIn"
             src={`/${image}`}
             alt="Product Image"
             width={260}

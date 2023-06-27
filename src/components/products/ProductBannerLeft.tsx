@@ -11,7 +11,7 @@ export const ProductBannerLeft:FC<Props> = ({ title, description, image }) => {
   return (
     <div className="flex gap-16">
       <Image
-        className="rounded-md"
+        className="rounded-md fadeIn"
         src={image}
         width={500}
         height={500}

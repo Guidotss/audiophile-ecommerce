@@ -1,7 +1,7 @@
 export default function HeroHeader() {
   return (
     <section className="bg-black flex px-24 2xl:px-40 py-20 rounded-b-md">
-      <div className="flex flex-col text-start image -mt-16 rounded-lg">
+      <div className="flex flex-col text-start image -mt-16 rounded-lg fadeIn">
         <div className="2xl:w-[750px] flex flex-col bg-carbon_black p-28 2xl:h-[900px] justify-center">
           <span className="text-snow_white mb-5 opacity-[0.5] tracking-[10px] font-extralight">
             NEW PRODUCT
