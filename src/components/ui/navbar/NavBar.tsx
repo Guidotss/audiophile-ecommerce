@@ -13,7 +13,7 @@ export const NavBar:FC<NavBarProps> = ({ divider }) => {
         <Logo />
         <ul className="flex gap-10 text-xs 2xl:text-lg">
           <NavBarLink title="HOME" link="" />
-          <NavBarLink title="HEADPHONE" link="headphone" />
+          <NavBarLink title="HEADPHONES" link="headphones" />
           <NavBarLink title="SPEAKERS" link="speakers" />
           <NavBarLink title="EARPHONES" link="earphones" />
         </ul>
