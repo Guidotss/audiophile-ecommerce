@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} w-full h-screen scroll-bar`}>
+      <body className={`${manrope.className} w-full h-screen scroll-bar overflow-x-hidden`}>
         <header className="bg-black w-full py-10 border-smoke_white sticky text-white items-center">
           <NavBar />
         </header>

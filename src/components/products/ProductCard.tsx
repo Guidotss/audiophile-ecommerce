@@ -18,7 +18,7 @@ export const ProductCard:FC<ProductCardProps> = ({ productName, image }) => {
             height={220}
             loading="lazy"
         />
-        <div className="bg-snow_white absolute 2xl:h-[210px] mt-36 rounded-lg 2xl:w-[370px]">
+        <div className="bg-snow_white absolute h-[210px] mt-36 rounded-lg w-[370px]">
             <div className="flex flex-col items-center justify-center mt-20">
                 <h2 className="text-black font-semibold text-lg tracking-widest mt-10">{ productName }</h2>
                 <div className="flex justify-center items-center gap-1 cursor-pointer">

@@ -27,12 +27,12 @@ export default function Home() {
         />
       </section>
       <section className="bg-white flex items-center justify-center">
-        <div className="flex items-center justify-center bg-cinnamon 2xl:w-[1190px] 2xl:h-[600px] mb-10 rounded-lg">
+        <div className="flex items-center justify-center bg-cinnamon w-[1190px] 2xl:h-[600px] h-[500px] mb-10 rounded-lg">
           <div className="flex flex-col flex-1">
-            <div className="absolute left-60 -mt-10">
+            <div className="absolute 2xl:left-60 sm:-ml-28 2xl:ml-0 -mt-10">
               <PatternCircleIcon />
             </div>
-            <div className="z-10 self-start ml-40 mt-32">
+            <div className="z-10 self-start ml-40 mt-4  2xl:mt-32">
               <Image
                 src="/assets/home/desktop/image-speaker-zx9.png"
                 width={400}
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col">
-            <article className="w-1/4 mr-24 -mt-16">
+            <article className="2xl:w-1/4 sm:w-[300px] 2xl:mr-24 2xl:-mt-16">
               <h1 className="text-snow_white font-semibold text-6xl mb-5">
                 ZX9 SPEAKER
               </h1>
@@ -68,7 +68,7 @@ export default function Home() {
             loading="lazy"
           />
         </div>
-        <div className="absolute 2xl:left-[400px] mt-36">
+        <div className="absolute 2xl:left-[400px] sm:left-40 2xl:mt-36 mt-24">
           <h1 className="text-5xl font-semibold">ZX7 SPEAKER</h1>
           <button className="hover:bg-black font-semibold px-10 py-3 mt-10 border-2 border-black transition-colors hover:text-white">
             SEE PRODUCT
@@ -84,7 +84,7 @@ export default function Home() {
           alt="earphones"
           loading="lazy"
         />
-        <div className="bg-snow_white rounded-lg w-auto 2xl:w-[600px] flex flex-col p-20">
+        <div className="bg-snow_white rounded-lg  w-[600px] flex flex-col p-20">
           <h1 className="text-3xl self-start font-bold ml-10 mt-10 tracking-wider">
             YX1 EARPHONES
           </h1>
