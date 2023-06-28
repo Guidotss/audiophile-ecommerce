@@ -1,5 +1,5 @@
 import { AboutUs, ProductBannerRight, ProductCard } from "@/components";
-import { ProductBannerLeft } from "../../components/products/ProductBannerLeft";
+import { ProductBannerLeft } from "../../../components/products/ProductBannerLeft";
 export default function HeadPhonesPage() {
   return (
     <main>
