@@ -1,3 +1,4 @@
+import { Providers } from "@/providers";
 import "./globals.css";
 import { Manrope } from "next/font/google";
 
@@ -16,9 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} w-full h-screen scroll-bar overflow-x-hidden`}>
-        {children}
-      </body>
+      <Providers>
+        <body className={`${manrope.className} w-full h-screen scroll-bar overflow-x-hidden`}>
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
