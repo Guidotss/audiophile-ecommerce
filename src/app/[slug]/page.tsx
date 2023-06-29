@@ -1,15 +1,14 @@
-import { AddProduct } from "@/components";
+import { AddProduct, ImageGallery } from "@/components";
 import { Product } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 
 const getProductBySlug = async (slug: string): Promise<Product> => {
-  const response = await fetch("http://localhost:3000/api/product/" + slug, {
+  const response = await fetch(`${process.env.API_URL}/product/${slug}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-    cache: "no-cache",
   });
   const product = await response.json();
   return product;
@@ -23,7 +22,7 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(params.slug);
   const productImage = product.image.desktop.split(".")[1];
   const productDescription = product.features.split("\n");
-  console.log(product.gallery["first"]);
+  
 
   return (
     <main className="py-24">
@@ -71,36 +70,7 @@ export default async function ProductPage({ params }: Props) {
           </h3>
         </article>
       </section>
-      <section className="flex items-center m-10">
-        {Object.keys(product.gallery).map((key: string, index) => {
-          if(key === '_id') return; 
-          if (key === "first" || key === "second") {
-            return ( 
-              <div key={index} className="mt-10 flex">
-                <Image
-                  className="rounded-lg fadeIn"
-                  src={`${product.gallery[key].desktop.split(".")[1]}.jpg`}
-                  alt={product.name}
-                  width={500}
-                  height={500}
-                />
-              </div>
-            );
-          }
-          return (
-            <div key={index} className="mt-10">
-              <Image
-                className="rounded-lg fadeIn"
-                src={`${product.gallery[key].desktop.split(".")[1]}.jpg`}
-                alt={product.name}
-                width={500}
-                height={500}
-              />
-            </div>
-          )
-
-        })}
-      </section>
+      <ImageGallery product={product} />
     </main>
   );
 }

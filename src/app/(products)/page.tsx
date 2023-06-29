@@ -1,14 +1,23 @@
-import {
-  AboutUs,
-  Footer,
-  NavBar,
-  PatternCircleIcon,
-  ProductCard,
-} from "@/components";
+import { AboutUs, PatternCircleIcon, ProductCard } from "@/components";
 import HeroHeader from "@/components/ui/HeroHeader";
 import Image from "next/image";
 
-export default function Home() {
+
+/* 
+const getProducts = async () => {
+  const response = await fetch(`${process.env.API_URL}/product`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const products = await response.json();
+  return products;
+};
+ */
+export default async function Home() {
+
+
   return (
     <main>
       <HeroHeader />
