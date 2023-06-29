@@ -17,7 +17,7 @@ export const ProductBannerRight:FC<Props> = ({ title, description, image }) => {
         <h1 className="font-semibold text-5xl w-1/2 mb-10">
           { title }
         </h1>
-        <p className="text-carbon_black opacity-[0.8] w-[600px]">
+        <p className="text-carbon_black opacity-[0.8] w-[450px]">
           { description }
         </p>
         <button className="bg-cinnamon px-10 py-4 w-[200px] mt-10 text-white hover:bg-peach transition-all">

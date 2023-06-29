@@ -21,7 +21,7 @@ interface ProductLayoutProps {
 
 export default function ProductLayOuyt({ children }: ProductLayoutProps) {
   return (
-    <main>
+    <main className="w-full h-screen">
       <header className="bg-black w-full py-10 border-smoke_white sticky text-white items-center">
         <NavBar />
       </header>

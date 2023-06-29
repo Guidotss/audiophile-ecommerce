@@ -6,7 +6,13 @@ export class ProductService {
 
     public async getProductBySlug(slug: string) {
         try{
-
+            const product = await this.productModel.findOne({slug: slug})
+                .lean()
+                .select('-_id -__v')
+                .exec();
+            
+            return product;
+                
         }catch(error){
             console.log(error); 
             throw new Error(`Error getting product by slug: ${error}`); 

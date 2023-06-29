@@ -33,6 +33,7 @@ const includeSchema = new Schema({
 
 const productSchema = new Schema({
     id: Number,
+    name: String,
     slug: String,
     image: categoryImage,
     category: String,

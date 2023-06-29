@@ -7,6 +7,7 @@ export class SeedService {
 
     public async seed(){ 
         try{ 
+            await this.productModel.deleteMany({});
             const products = await this.productModel.insertMany(data);
             return products;
         }catch(error){ 
