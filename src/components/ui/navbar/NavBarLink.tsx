@@ -6,10 +6,10 @@ interface NavBarILinkProps {
   link: string;
 }
 
-export const NavBarLink:FC<NavBarILinkProps> = ({ title, link }) => {
+export const NavBarLink: FC<NavBarILinkProps> = ({ title, link }) => {
   return (
     <li className="hover:text-cinnamon transition-colors tracking-widest">
-      <Link href={`/${link}`}>{ title }</Link>
+      <Link href={link === "" ? "/" : `/category/${link}`}>{title}</Link>
     </li>
   );
 };

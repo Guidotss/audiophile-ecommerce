@@ -20,7 +20,7 @@ export const AboutUs = () => {
       </article>
       <div>
         <Image
-          className="rounded-lg"
+          className="rounded-lg fadeIn"
           src="/assets/shared/desktop/image-best-gear.jpg"
           width={600}
           height={600}

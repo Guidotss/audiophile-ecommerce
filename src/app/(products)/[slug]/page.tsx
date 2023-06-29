@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getProductBySlug = async (slug: string): Promise<Product> => {
-  const response = await fetch(`${process.env.API_URL}/product/${slug}`, {
+  const response = await fetch(`${process.env.API_URL}/product/slug/${slug}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
   const product = await response.json();
+  console.log (product);
   return product;
 };
 
@@ -20,8 +21,8 @@ type Props = {
 
 export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(params.slug);
-  const productImage = product.image.desktop.split(".")[1];
-  const productDescription = product.features.split("\n");
+  const productImage = product.image?.desktop?.split(".")[1];
+  const productDescription = product?.features?.split("\n");
   
 
   return (

@@ -1,20 +1,8 @@
 import { AboutUs, PatternCircleIcon, ProductCard } from "@/components";
 import HeroHeader from "@/components/ui/HeroHeader";
 import Image from "next/image";
+import Link from "next/link";
 
-
-/* 
-const getProducts = async () => {
-  const response = await fetch(`${process.env.API_URL}/product`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const products = await response.json();
-  return products;
-};
- */
 export default async function Home() {
 
 
@@ -60,9 +48,12 @@ export default async function Home() {
                 deliver truly remarkable sound.
               </p>
             </article>
-            <button className="self-start bg-black text-white px-8 py-4 z-10 hover:bg-carbon_black hover:contrast-50 transition-all tracking-wider">
+            <Link 
+              className="self-start bg-black text-white px-8 py-4 z-10 hover:bg-carbon_black hover:contrast-50 transition-all tracking-wider"
+              href="/zx9-speaker"
+            >
               SEE PRODUCT
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -78,10 +69,13 @@ export default async function Home() {
           />
         </div>
         <div className="absolute 2xl:left-[400px] sm:left-40 2xl:mt-36 mt-24">
-          <h1 className="text-5xl font-semibold">ZX7 SPEAKER</h1>
-          <button className="hover:bg-black font-semibold px-10 py-3 mt-10 border-2 border-black transition-colors hover:text-white">
+          <h1 className="text-5xl font-semibold mb-10">ZX7 SPEAKER</h1>
+          <Link 
+            className="hover:bg-black font-semibold px-10 py-3 border-2 border-black transition-colors hover:text-white "
+            href="/zx7-speaker"
+          >
             SEE PRODUCT
-          </button>
+          </Link>
         </div>
       </section>
       <section className="flex justify-center gap-10 mt-10 ">
@@ -97,9 +91,12 @@ export default async function Home() {
           <h1 className="text-3xl self-start font-bold ml-10 mt-10 tracking-wider">
             YX1 EARPHONES
           </h1>
-          <button className="hover:bg-black font-semibold px-10 py-3 mt-10 border-2 border-black transition-colors hover:text-white w-[200px] ml-10">
+          <Link 
+            className="hover:bg-black font-semibold px-10 py-3 mt-10 border-2 border-black transition-colors hover:text-white w-[200px] ml-10 text-end"
+            href="/yx1-earphones"
+          >
             SEE PRODUCT
-          </button>
+          </Link>
         </div>
       </section>
       <AboutUs />
