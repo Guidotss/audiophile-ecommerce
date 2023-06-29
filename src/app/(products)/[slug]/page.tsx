@@ -1,4 +1,10 @@
-import { AddProduct, ImageGallery } from "@/components";
+import {
+  AboutUs,
+  AddProduct,
+  ImageGallery,
+  ProductCard,
+  RelatedProducts,
+} from "@/components";
 import { Product } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +17,6 @@ const getProductBySlug = async (slug: string): Promise<Product> => {
     },
   });
   const product = await response.json();
-  console.log (product);
   return product;
 };
 
@@ -23,7 +28,8 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(params.slug);
   const productImage = product.image?.desktop?.split(".")[1];
   const productDescription = product?.features?.split("\n");
-  
+
+  console.log(product.others);
 
   return (
     <main className="py-24">
@@ -72,6 +78,29 @@ export default async function ProductPage({ params }: Props) {
         </article>
       </section>
       <ImageGallery product={product} />
+      <section className="flex flex-col justify-center items-center mt-36">
+        <h3 className="text-black tracking-widest flex justify-between text-4xl font-semibold mb-10">
+          YOU MAY ALSO LIKE
+        </h3>
+        <div className="flex justify-center items-center gap-10 flex-wrap mt-10">
+          <RelatedProducts product={product} />
+        </div>
+      </section>
+      <section className="bg-white p-20 flex items-center justify-center w-full gap-36 mt-36">
+        <ProductCard
+          productName="HEADPHONES"
+          image="assets/shared/desktop/image-category-thumbnail-headphones.png"
+        />
+        <ProductCard
+          productName="SPEAKERS"
+          image="assets/shared/desktop/image-category-thumbnail-speakers.png"
+        />
+        <ProductCard
+          productName="EARPHONES"
+          image="assets/shared/desktop/image-category-thumbnail-earphones.png"
+        />
+      </section>
+      <AboutUs />
     </main>
   );
 }

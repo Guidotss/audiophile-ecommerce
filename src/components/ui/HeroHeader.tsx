@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function HeroHeader() {
   return (
@@ -16,9 +17,12 @@ export default function HeroHeader() {
               made for the passionate music enthusiast.
             </p>
           </article>
-          <button className="text-smoke_white font-semibold py-3 px-10 mt-10 2xl:mt-12 2xl:py-4 2xl:px-11 bg-cinnamon w-48 2xl:w-52 hover:bg-peach transition-colors">
+          <Link
+            className="text-smoke_white font-semibold py-3 px-10 mt-10 2xl:mt-12 2xl:py-4 2xl:px-11 bg-cinnamon w-48 2xl:w-52 hover:bg-peach transition-colors"
+            href="/xx99-mark-two-headphones"
+          >
             SEE PRODUCT
-          </button>
+          </Link>
         </div>
       </div>
     </section>
