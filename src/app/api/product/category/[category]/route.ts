@@ -7,6 +7,7 @@ const productService = new ProductService();
 export async function GET(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const category = pathname.split("/")[4];
+  console.log(category);
 
   try {
     const products = await productService.getProductsByCategory(category);

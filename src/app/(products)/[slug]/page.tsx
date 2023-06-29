@@ -27,13 +27,11 @@ type Props = {
 export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(params.slug);
   const productImage = product.image?.desktop?.split(".")[1];
-  const productDescription = product?.features?.split("\n");
-
-  console.log(product.others);
+  const productDescription = product?.features?.split("\n");  
 
   return (
     <main className="py-24">
-      <div className="flex 2xl:w-1/2 items-center justify-center -ml-4 mb-16">
+      <div className="flex 2xl:w-1/2 items-center 2xl:justify-center ml-28 2xl:-ml-4 mb-16">
         <Link
           href="/"
           className="text-carbon_black opacity-[0.6] font-semibold"
@@ -61,7 +59,7 @@ export default async function ProductPage({ params }: Props) {
           <AddProduct />
         </article>
       </section>
-      <section className="flex justify-between px-96 ml-10 w-full mt-36">
+      <section className="flex justify-between 2xl:px-96 sm:px-20 ml-10 w-full mt-36">
         <article className="w-[700px]">
           <h3 className="text-black tracking-widest flex justify-between text-4xl font-semibold mb-10">
             FEATURES
@@ -72,7 +70,7 @@ export default async function ProductPage({ params }: Props) {
           </article>
         </article>
         <article>
-          <h3 className="text-black tracking-widest flex justify-between text-4xl font-semibold mb-10">
+          <h3 className="text-black tracking-widest flex justify-between text-4xl font-semibold mb-10 sm:mr-10 2xl:mr-0">
             IN THE BOX
           </h3>
         </article>

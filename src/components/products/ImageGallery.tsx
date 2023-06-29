@@ -8,7 +8,7 @@ interface Props {
 
 export const ImageGallery:FC<Props> = ({ product }) => {
   return (
-    <section className="flex items-center mt-28 justify-center gap-10 mr-24">
+    <section className="sm:w-full 2xl:w-auto flex items-center mt-28 justify-center gap-10 mr-24">
       <div className="flex flex-col gap-3">
         {Object.keys(product.gallery).map((key) => {
           if (key === "first" || key === "second") {
