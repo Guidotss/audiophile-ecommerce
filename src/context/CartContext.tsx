@@ -1,9 +1,11 @@
 "use client"
-import { Cart } from "@/interfaces";
+import { CartItem } from "@/interfaces";
 import { createContext } from "react";
 
 interface CartContext {
-    cart: Cart | null; 
+    cart: CartItem[] 
+    addItem: (item: CartItem) => void;
+    
 }
 
 export const CartContext = createContext({} as CartContext); 

@@ -8,7 +8,9 @@ export default async function Home() {
 
   return (
     <main>
-      <HeroHeader />
+      <section className="relative -z-10">
+        <HeroHeader />
+      </section>
       <section className="bg-white p-20 flex items-center justify-center w-full gap-36">
         <ProductCard
           productName="HEADPHONES"

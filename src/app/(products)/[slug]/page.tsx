@@ -56,7 +56,9 @@ export default async function ProductPage({ params }: Props) {
             {product.description}
           </p>
           <p className="mt-5 text-xl font-bold">${product.price}</p>
-          <AddProduct />
+          <AddProduct 
+            product={product}
+          />
         </article>
       </section>
       <section className="flex justify-between 2xl:px-96 sm:px-20 ml-10 w-full mt-36">

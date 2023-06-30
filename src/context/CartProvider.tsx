@@ -1,7 +1,7 @@
 "use client"
-import { FC, useReducer } from "react";
+import { FC, useEffect, useReducer } from "react";
 import { CartContext, cartReducer } from "."; 
-import { Cart } from "@/interfaces";
+import { CartItem } from "@/interfaces";
 
 
 interface CartProviderProps {
@@ -9,20 +9,35 @@ interface CartProviderProps {
 }
 
 export interface CartState {
-    cart: Cart | null;
+    cart: CartItem[] 
+
 }
 
 const CART_INITIAL_STATE: CartState = {
-    cart: null,
+    cart: [],
 }
 
 
 export const CartProvider: FC<CartProviderProps> = ({ children }) =>  {
     const [ state, dispatch ] = useReducer(cartReducer,CART_INITIAL_STATE); 
 
+    useEffect(() => {
+        const cart = localStorage.getItem("cart");
+        //TODO: initialize cart from local storage.
+        if (cart) {}; 
+    })
+
+    const addItem = (item: CartItem) => {
+        dispatch({ type: "[CART] - Add product", payload: item });
+        localStorage.setItem("cart", JSON.stringify(state.cart));
+    }
+
+
     return (
         <CartContext.Provider value={{
-            ...state
+            ...state,
+
+            addItem,
         }}>
             { children }
         </CartContext.Provider>
