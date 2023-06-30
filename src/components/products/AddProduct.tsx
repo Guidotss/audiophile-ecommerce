@@ -11,6 +11,7 @@ export const AddProduct: FC<AddProductProps> = ({ product }) => {
   const [counter, setCounter] = useState(1);
   const { addItem } = useContext(CartContext);
 
+
   const increaseCounter = () => {
     setCounter(counter + 1);
   };

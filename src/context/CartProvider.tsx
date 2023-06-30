@@ -1,46 +1,51 @@
-"use client"
+"use client";
 import { FC, useEffect, useReducer } from "react";
-import { CartContext, cartReducer } from "."; 
+import { CartContext, cartReducer } from ".";
 import { CartItem } from "@/interfaces";
 
-
 interface CartProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export interface CartState {
-    cart: CartItem[] 
-
+  cart: CartItem[];
 }
 
 const CART_INITIAL_STATE: CartState = {
-    cart: [],
-}
+  cart: [],
+};
 
+export const CartProvider: FC<CartProviderProps> = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, CART_INITIAL_STATE);
 
-export const CartProvider: FC<CartProviderProps> = ({ children }) =>  {
-    const [ state, dispatch ] = useReducer(cartReducer,CART_INITIAL_STATE); 
-
-    useEffect(() => {
-        const cart = localStorage.getItem("cart");
-        //TODO: initialize cart from local storage.
-        if (cart) {}; 
-    })
-
-    const addItem = (item: CartItem) => {
-        dispatch({ type: "[CART] - Add product", payload: item });
-        localStorage.setItem("cart", JSON.stringify(state.cart));
+  useEffect(() => {
+    const cart = localStorage.getItem("cart");
+    if (cart) {
+      dispatch({
+        type: "[CART] - Load products",
+        payload: JSON.parse(cart),
+      });
     }
+  },[]);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
-    return (
-        <CartContext.Provider value={{
-            ...state,
+  const addItem = (item: CartItem) => {
+    dispatch({ type: "[CART] - Add product", payload: item });
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  };
 
-            addItem,
-        }}>
-            { children }
-        </CartContext.Provider>
-    )
-    
-}
+  return (
+    <CartContext.Provider
+      value={{
+        ...state,
+
+        addItem,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
