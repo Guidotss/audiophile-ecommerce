@@ -78,7 +78,7 @@ export const cartReducer = (
     case "[CART] - Load products":
       return { 
         ...state,
-        cart: action.payload 
+        cart: action.payload as unknown as CartItem[]
       }
 
     default:

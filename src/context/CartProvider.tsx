@@ -2,6 +2,7 @@
 import { FC, useEffect, useReducer } from "react";
 import { CartContext, cartReducer } from ".";
 import { CartItem } from "@/interfaces";
+import { couldStartTrivia } from "typescript";
 
 interface CartProviderProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const cart = localStorage.getItem("cart");
+    
     if (cart) {
       dispatch({
         type: "[CART] - Load products",
