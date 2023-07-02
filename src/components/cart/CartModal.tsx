@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const CartModal = () => {
-  const { cart, deleteCart } = useContext(CartContext);
+  const { cart,totalPrice, deleteCart } = useContext(CartContext);
 
   const onDeleteCart = () => {
     deleteCart();
@@ -14,7 +14,7 @@ export const CartModal = () => {
   return (
     <div className="flex flex-col p-7 bg-white text-black absolute right-52 mt-3 z-40 rounded-md 2xl:w-[430px] shadow-lg">
       <div className="flex justify-between w-full gap-10">
-        <h4 className="text-lg font-bold">CART (3)</h4>
+        <h4 className="text-lg font-bold">CART ({cart.length})</h4>
         <button
           className="text-sm underline text-carbon_black opacity-[0.8]"
           onClick={onDeleteCart}
@@ -54,7 +54,7 @@ export const CartModal = () => {
       </ul>
       <div className="flex justify-between mt-10">
         <h4 className="text-carbon_blac text-lg  font-semibold">TOTAL</h4>
-        <h4 className="font-bold text-lg">$ 5,000</h4>
+        <h4 className="font-bold text-lg">$ {totalPrice}</h4>
       </div>
       <Link
         className="bg-cinnamon text-white py-3 mt-10 px-14 text-center hover:bg-peach transition-colors"

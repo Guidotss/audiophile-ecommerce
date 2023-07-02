@@ -2,7 +2,7 @@
 import { FC, useEffect, useReducer } from "react";
 import { CartContext, cartReducer } from ".";
 import { CartItem } from "@/interfaces";
-import { couldStartTrivia } from "typescript";
+
 
 interface CartProviderProps {
   children: React.ReactNode;
@@ -10,10 +10,12 @@ interface CartProviderProps {
 
 export interface CartState {
   cart: CartItem[];
+  totalPrice: number;
 }
 
 const CART_INITIAL_STATE: CartState = {
   cart: [],
+  totalPrice: 0,
 };
 
 export const CartProvider: FC<CartProviderProps> = ({ children }) => {
@@ -32,6 +34,13 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
+    const totalPrice = state.cart.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+
+    dispatch({ type: "[CART] - Update total price", payload: totalPrice });
+
   }, [state.cart]);
 
   const addItem = (item: CartItem) => {

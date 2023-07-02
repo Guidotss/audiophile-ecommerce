@@ -4,6 +4,7 @@ import { createContext } from "react";
 
 interface CartContext {
     cart: CartItem[] 
+    totalPrice: number; 
     addItem: (item: CartItem) => void;
     deleteCart: () => void; 
 }

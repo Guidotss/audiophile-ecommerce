@@ -7,6 +7,7 @@ type CartActionType =
   | { type: "[CART] - Delete product"; payload: CartItem }
   | { type: "[CART] - Load products"; payload: CartItem }
   | { type: "[CART] - Delete cart" }
+  | { type: "[CART] - Update total price", payload: number }
 
 export const cartReducer = (
   state: CartState,
@@ -88,6 +89,11 @@ export const cartReducer = (
           cart: []
         }
 
+    case "[CART] - Update total price": 
+        return { 
+          ...state,
+          totalPrice: action.payload
+        }
     default:
       return state;
   }
