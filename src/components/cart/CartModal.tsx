@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const CartModal = () => {
-  const { cart,totalPrice, deleteCart } = useContext(CartContext);
+  const { cart,totalPrice, deleteCart,increaseQuantity } = useContext(CartContext);
 
   const onDeleteCart = () => {
     deleteCart();
@@ -41,11 +41,17 @@ export const CartModal = () => {
               </div>
             </div>
             <div className="flex bg-snow_white px-5 py-2">
-              <button className="px-2 w-[20px] text-start mr-2 text-carbon_black opacity-[0.7]">
+              <button 
+                className="px-2 w-[20px] text-start mr-2 text-carbon_black opacity-[0.7]"
+                onClick={() => increaseQuantity(item, -1)}
+              >
                 -
               </button>
               <span className="mx-2 font-bold">{item.quantity}</span>
-              <button className="px-2 ml-2 text-carbon_black opacity-[0.7]">
+              <button 
+                className="px-2 ml-2 text-carbon_black opacity-[0.7]"
+                onClick={() => increaseQuantity(item, 1)}
+              >
                 +
               </button>
             </div>

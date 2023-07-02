@@ -1,13 +1,13 @@
 import { CartItem } from "@/interfaces";
 import { CartState } from ".";
 
-
 type CartActionType =
   | { type: "[CART] - Add product"; payload: CartItem }
   | { type: "[CART] - Delete product"; payload: CartItem }
   | { type: "[CART] - Load products"; payload: CartItem }
   | { type: "[CART] - Delete cart" }
-  | { type: "[CART] - Update total price", payload: number }
+  | { type: "[CART] - Update total price"; payload: number }
+  | { type: "[CART] - Update update quantity from modal"; payload: { item:CartItem, increaseBy: number } };
 
 export const cartReducer = (
   state: CartState,
@@ -76,24 +76,38 @@ export const cartReducer = (
           }),
         };
       }
-    
-    case "[CART] - Load products":
-      return { 
-        ...state,
-        cart: action.payload as unknown as CartItem[]
-      }
-    
-    case "[CART] - Delete cart":
-        return { 
-          ...state,
-          cart: []
-        }
 
-    case "[CART] - Update total price": 
-        return { 
-          ...state,
-          totalPrice: action.payload
-        }
+    case "[CART] - Load products":
+      return {
+        ...state,
+        cart: action.payload as unknown as CartItem[],
+      };
+
+    case "[CART] - Delete cart":
+      return {
+        ...state,
+        cart: [],
+      };
+
+    case "[CART] - Update total price":
+      return {
+        ...state,
+        totalPrice: action.payload,
+      };
+    
+    case "[CART] - Update update quantity from modal": 
+      return {
+        ...state,
+        cart: state.cart.map((product) => {
+          if (product.id === action.payload.item.id) {
+            return {
+              ...product,
+              quantity: product.quantity + action.payload.increaseBy,
+            };
+          }
+          return product;
+        })
+      }
     default:
       return state;
   }

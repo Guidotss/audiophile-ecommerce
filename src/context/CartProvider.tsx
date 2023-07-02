@@ -3,7 +3,6 @@ import { FC, useEffect, useReducer } from "react";
 import { CartContext, cartReducer } from ".";
 import { CartItem } from "@/interfaces";
 
-
 interface CartProviderProps {
   children: React.ReactNode;
 }
@@ -23,14 +22,14 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const cart = localStorage.getItem("cart");
-    
+
     if (cart) {
       dispatch({
         type: "[CART] - Load products",
         payload: JSON.parse(cart),
       });
     }
-  },[]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
@@ -40,7 +39,6 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
     );
 
     dispatch({ type: "[CART] - Update total price", payload: totalPrice });
-
   }, [state.cart]);
 
   const addItem = (item: CartItem) => {
@@ -48,13 +46,25 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   };
 
-  const deleteCart = () => { 
+  const deleteCart = () => {
     const cart = localStorage.getItem("cart");
     if (cart) {
       dispatch({ type: "[CART] - Delete cart" });
       localStorage.removeItem("cart");
     }
-  }
+  };
+
+  const increaseQuantity = (item: CartItem, quantity: number) => {
+    if (item.quantity === 1 && quantity === -1) {
+      item.quantity = 0;
+      dispatch({ type: "[CART] - Delete product", payload: item });
+      return;
+    }
+    dispatch({
+      type: "[CART] - Update update quantity from modal",
+      payload: { item, increaseBy: quantity },
+    });
+  };
 
   return (
     <CartContext.Provider
@@ -63,6 +73,7 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
 
         addItem,
         deleteCart,
+        increaseQuantity,
       }}
     >
       {children}
