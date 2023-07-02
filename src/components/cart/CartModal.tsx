@@ -44,7 +44,7 @@ export const CartModal = () => {
               <button className="px-2 w-[20px] text-start mr-2 text-carbon_black opacity-[0.7]">
                 -
               </button>
-              <span className="mx-2 font-bold">1</span>
+              <span className="mx-2 font-bold">{item.quantity}</span>
               <button className="px-2 ml-2 text-carbon_black opacity-[0.7]">
                 +
               </button>
