@@ -9,7 +9,7 @@ import { Product } from "@/interfaces";
 const getProductByCategory = async (category: string): Promise<Product[]> => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product/category/${category}`,
-    {cache: "no-cache"}
+    { cache: "no-cache" }
   );
   const data = await response.json();
   return data.products;
@@ -22,7 +22,6 @@ type Props = {
 export default async function CategoryPage({ params }: Props) {
   const { category } = params;
   const products = await getProductByCategory(category);
-  
 
   return (
     <main>
