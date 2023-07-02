@@ -5,7 +5,8 @@ import { CartState } from ".";
 type CartActionType =
   | { type: "[CART] - Add product"; payload: CartItem }
   | { type: "[CART] - Delete product"; payload: CartItem }
-  | { type: "[CART] - Load products"; payload: CartItem };
+  | { type: "[CART] - Load products"; payload: CartItem }
+  | { type: "[CART] - Delete cart" }
 
 export const cartReducer = (
   state: CartState,
@@ -80,6 +81,12 @@ export const cartReducer = (
         ...state,
         cart: action.payload as unknown as CartItem[]
       }
+    
+    case "[CART] - Delete cart":
+        return { 
+          ...state,
+          cart: []
+        }
 
     default:
       return state;

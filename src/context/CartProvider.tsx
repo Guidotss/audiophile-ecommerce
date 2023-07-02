@@ -39,12 +39,21 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   };
 
+  const deleteCart = () => { 
+    const cart = localStorage.getItem("cart");
+    if (cart) {
+      dispatch({ type: "[CART] - Delete cart" });
+      localStorage.removeItem("cart");
+    }
+  }
+
   return (
     <CartContext.Provider
       value={{
         ...state,
 
         addItem,
+        deleteCart,
       }}
     >
       {children}

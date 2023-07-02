@@ -5,14 +5,20 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const CartModal = () => {
-  const { cart } = useContext(CartContext);
-  console.log(cart);
+  const { cart, deleteCart } = useContext(CartContext);
+
+  const onDeleteCart = () => {
+    deleteCart();
+  };
 
   return (
     <div className="flex flex-col p-7 bg-white text-black absolute right-52 mt-3 z-40 rounded-md 2xl:w-[430px] shadow-lg">
       <div className="flex justify-between w-full gap-10">
         <h4 className="text-lg font-bold">CART (3)</h4>
-        <button className="text-sm underline text-carbon_black opacity-[0.8]">
+        <button
+          className="text-sm underline text-carbon_black opacity-[0.8]"
+          onClick={onDeleteCart}
+        >
           Remove all
         </button>
       </div>
@@ -35,9 +41,13 @@ export const CartModal = () => {
               </div>
             </div>
             <div className="flex bg-snow_white px-5 py-2">
-                <button className="px-2 w-[20px] text-start mr-2 text-carbon_black opacity-[0.7]">-</button>
-                <span className="mx-2 font-bold">1</span>
-                <button className="px-2 ml-2 text-carbon_black opacity-[0.7]">+</button>
+              <button className="px-2 w-[20px] text-start mr-2 text-carbon_black opacity-[0.7]">
+                -
+              </button>
+              <span className="mx-2 font-bold">1</span>
+              <button className="px-2 ml-2 text-carbon_black opacity-[0.7]">
+                +
+              </button>
             </div>
           </div>
         ))}

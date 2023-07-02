@@ -43,7 +43,6 @@ export const NavBar: FC<NavBarProps> = ({ divider }) => {
       {isCartModalOpen && (
         <div
           className="w-full h-screen absolute backdrop-blur-md fadeIn"
-          onClick={toggleCartModal}
         >
           <CartModal />
         </div>
