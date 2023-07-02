@@ -27,7 +27,7 @@ type Props = {
 export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(params.slug);
   const productImage = product.image?.desktop?.split(".")[1];
-  const productDescription = product?.features?.split("\n");  
+  const productDescription = product?.features?.split("\n");
 
   return (
     <main className="py-24">
@@ -41,7 +41,7 @@ export default async function ProductPage({ params }: Props) {
       </div>
       <section className="flex justify-center items-center gap-10">
         <Image
-          className="rounded-lg fadeIn"
+          className="rounded-lg fadeIn -z-10"
           src={`${productImage}.jpg`}
           alt={product.name}
           width={500}
@@ -52,13 +52,13 @@ export default async function ProductPage({ params }: Props) {
           <h1 className="text-carbon_black text-5xl font-semibold tracking-widest">
             {product.name.toUpperCase()}
           </h1>
-          <p className="mt-10 w-[470px] text-carbon_black opacity-[0.6] font-semibold">
-            {product.description}
-          </p>
+          <div className="w-full">
+            <p className="w-[470px] mt-10 text-carbon_black opacity-[0.6] font-semibold -z-10">
+              {product.description}
+            </p>
+          </div>
           <p className="mt-5 text-xl font-bold">${product.price}</p>
-          <AddProduct 
-            product={product}
-          />
+          <AddProduct product={product} />
         </article>
       </section>
       <section className="flex justify-between 2xl:px-96 sm:px-20 ml-10 w-full mt-36">
