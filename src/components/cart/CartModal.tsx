@@ -12,7 +12,7 @@ export const CartModal = () => {
   };
 
   return (
-    <div className="flex flex-col p-7 bg-white text-black absolute right-52 mt-3 z-40 rounded-md 2xl:w-[430px] shadow-lg">
+    <div className="flex flex-col p-7 bg-white text-black absolute 2xl:right-52 sm:right-10 mt-3 z-40 rounded-md w-[430px] shadow-lg">
       <div className="flex justify-between w-full gap-10">
         <h4 className="text-lg font-bold">CART ({cart.length})</h4>
         <button
